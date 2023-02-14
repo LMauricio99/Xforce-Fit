@@ -1,0 +1,43 @@
+{
+  "name": "xforce-fit",
+  "version": "1.0.0",
+  "description": "Desarrollo de la lógica del backend",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "start:dev": "nodemon src/index.js --exec babel-node",
+    "db:up": "node src/database/scripts/dbUp.js",
+    "db:down": "node src/database/scripts/dbDown.js",
+    "tables:up": "node src/database/scripts/tablesUp.js",
+    "db:init": "npm run db:up && npm run tables:up"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LMauricio99/Xforce-Fit.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "joi": "^17.6.0",
+    "jsonwebtoken": "^8.5.1",
+    "morgan": "^1.10.0",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.16",
+    "winston": "^3.7.2",
+    "@babel/cli": "^7.12.10",
+    "@babel/core": "^7.12.10",
+    "@babel/node": "^7.12.10",
+    "@babel/preset-env": "^7.12.11"
+  },
+  "bugs": {
+    "url": "https://github.com/LMauricio99/Xforce-Fit/issues"
+  },
+  "homepage": "https://github.com/LMauricio99/Xforce-Fit#readme"
+}
