@@ -1,0 +1,12 @@
+CREATE DATABASE IF NOT EXISTS shopshoe;
+CREATE TABLE IF NOT EXISTS users (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    firstname VARCHAR(50),
+    lastname VARCHAR(50),
+    email VARCHAR(255) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    username VARCHAR(200) NULL,
+    phone INTEGER,
+    address_fisical VARCHAR(200),
+    created_on TIMESTAMP(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6)
+);

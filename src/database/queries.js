@@ -16,11 +16,11 @@ CREATE TABLE IF NOT EXISTS users (
 `;
 
 const createNewUser = `
-INSERT INTO users VALUES(null, ?, ?, ?, ?, NOW())
+INSERT INTO users VALUES(null, ?, ?, ?, ?, ?, ?, ?, NOW())
 `;
 
-const findUserByEmail = `
-SELECT * FROM users WHERE email = ?
+const findUserByUsername = `
+SELECT * FROM users WHERE username = ?
 `;
 
 module.exports = {
@@ -28,5 +28,5 @@ module.exports = {
     dropDB,
     createTableUSers,
     createNewUser,
-    findUserByEmail
+    findUserByUsername
 };

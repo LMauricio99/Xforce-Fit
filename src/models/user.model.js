@@ -1,13 +1,16 @@
 const db = require('../config/db.config');
-const { createNewUser: createNewUserQuery, findUserByEmail: findUserByEmailQuery } = require('../database/queries');
+const { createNewUser: createNewUserQuery, findUserByUsername: findUserByUsernameQuery } = require('../database/queries');
 const { logger } = require('../utils/logger');
 
 class User {
-    constructor(firstname, lastname, email, password) {
+    constructor(firstname, lastname, email, password, address_fisical, phone, username) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.email = email;
         this.password = password;
+        this.address_fisical = address_fisical;
+        this.phone = phone;
+        this.username = username;
     }
 
     static create(newUser, cb) {
@@ -16,7 +19,10 @@ class User {
                 newUser.firstname, 
                 newUser.lastname, 
                 newUser.email, 
-                newUser.password
+                newUser.password,
+                newUser.phone,
+                newUser.address_fisical,
+                newUser.username
             ], (err, res) => {
                 if (err) {
                     logger.error(err.message);
@@ -27,13 +33,16 @@ class User {
                     id: res.insertId,
                     firstname: newUser.firstname,
                     lastname: newUser.lastname,
-                    email: newUser.email
+                    email: newUser.email,
+                    address_fisical: newUser.address_fisical,
+                    phone: newUser.phone,
+                    username: newUser.username
                 });
         });
     }
 
-    static findByEmail(email, cb) {
-        db.query(findUserByEmailQuery, email, (err, res) => {
+    static findByUsername(username, cb) {
+        db.query(findUserByUsernameQuery, username, (err, res) => {
             if (err) {
                 logger.error(err.message);
                 cb(err, null);
